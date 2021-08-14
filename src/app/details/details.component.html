@@ -1,0 +1,249 @@
+<!--Main container starts-->
+<div class="container-fluid" style=" background: linear-gradient(to right, #000428, #004e92);">
+
+    <!--Container for Book starts-->
+    <div class="container" *ngIf="currentBook"
+        style="color:white;word-wrap: break-word;background: linear-gradient(to right, #eb5757, #000000);box-shadow: 0px 3px 20px 2px white">
+        <div class="row">
+            <div class="col-md-12" style="text-align:center;padding-top:2%">
+                <h3> {{currentBook.name}}</h3>
+            </div>
+        </div>
+        <!--row 1 ends-->
+        <br><br>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="https://riyagarg47.github.io/book.jpg"
+                    style="height:100%;width:80%;border-radius:4px;box-shadow: 0px 3px 20px 2px white">
+            </div>
+            <div class="col-md-4" style="padding-left:3%;">
+                <div style="padding-top:7%;">
+                    <p><b>ISBN :</b> {{currentBook.isbn}}</p>
+                </div>
+                <div>
+                    <p><b>No. Of Pages :</b> {{currentBook.numberOfPages}}</p>
+                </div>
+                <div>
+                    <p><b>Publisher :</b> {{currentBook.publisher}}</p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div>
+                    <p><b>Country :</b> {{currentBook.country}}</p>
+                </div>
+                <div>
+                    <p><b>Media Type :</b> {{currentBook.mediaType}}</p>
+                </div>
+                <div>
+                    <p><b>Released :</b> {{currentBook.released | date}}</p>
+                </div>
+                <div>
+                    <p><b>Authors :</b> {{currentBook.authors}}</p>
+                </div>
+            </div>
+        </div>
+        <!--row 2 ends-->
+
+        <br>
+        <hr style="background-color: white">
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Characters :</b></p>
+                <p *ngIf="currentBook.characters.length!=undefined && currentBook.characters.length>0"><span *ngFor="let tag of currentBook.characters;let first=first; let last=last">{{tag}}{{last ? '.' : '\n '}}</span></p>
+            </div>
+        </div>
+        <!--row 3 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Pov Characters:</b><p>
+                <p *ngIf="currentBook.povCharacters.length!=undefined && currentBook.povCharacters.length>0"><span *ngFor="let tag of currentBook.povCharacters;let first=first; let last=last">{{tag}}{{last ? '.' : '\n '}}</span></p>
+            </div>
+        </div>
+        <!--row 4 ends-->
+    </div>
+    <!--Container for Book ends-->
+
+
+    <!--Container for Character starts-->
+    <div class="container" *ngIf="currentCharacter"
+        style="color:white;word-wrap: break-word; background: linear-gradient(to right, #41295a, #2f0743);box-shadow: 0px 3px 20px 2px white;">
+        <div class="row">
+            <div class="col-md-12" style="text-align:center;padding-top:2%">
+                <h3>Character Name : {{currentCharacter.name}}</h3>
+            </div>
+        </div>
+        <!--row 1 ends-->
+        <br><br>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="https://riyagarg47.github.io/character.jpg"
+                    style="height:100%;width:80%;border-radius:4px;box-shadow: 0px 3px 20px 2px white">
+            </div>
+            <div class="col-md-4" style="padding-left:3%;">
+                <div style="padding-top:7%;">
+                    <p><b>Gender :</b> {{currentCharacter.gender}}</p>
+                </div>
+                <div>
+                    <p><b>Birth :</b> {{currentCharacter.born}}</p>
+                </div>
+                <div>
+                    <p><b>Death :</b> {{currentCharacter.died}}</p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div>
+                    <p><b>Culture :</b> {{currentCharacter.culture}}</p>
+                </div>
+                <div>
+                    <p><b>Father :</b> {{currentCharacter.father}}</p>
+                </div>
+                <div>
+                    <p><b>Mother :</b> {{currentCharacter.mother}}</p>
+                </div>
+                <div>
+                    <p><b>Spouse :</b> {{currentCharacter.spouse}}</p>
+                </div>
+                <div>
+                    <p><b>Played By :</b> {{currentCharacter.playedBy}}</p>
+                </div>
+            </div>
+        </div>
+        <!--row 2 ends-->
+        <br>
+        <hr style="background-color: white">
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Titles :</b> {{currentCharacter.titles}}</p>
+            </div>
+        </div>
+        <!--row 3 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Aliases :</b> {{currentCharacter.aliases}}</p>
+            </div>
+        </div>
+        <!--row 4 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Allegiances :</b> {{currentCharacter.allegiances}}</p>
+            </div>
+        </div>
+        <!--row 5 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p *ngIf="currentCharacter.tvSeries.length!=undefined && currentCharacter.tvSeries.length>0"><b>TV Series : </b><span *ngFor="let tag1 of currentCharacter.tvSeries;let first=first; let last=last">{{tag1}}{{last ? '.' : ', \n'}}</span></p>
+            </div>
+        </div>
+        <!--row 6 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Books :</b></p>
+                <p *ngIf="currentCharacter.books.length!=undefined && currentCharacter.books.length>0"><span *ngFor="let tag1 of currentCharacter.books;let first=first; let last=last">{{tag1}}{{last ? '.' : '\n'}}</span></p>
+            </div>
+        </div>
+        <!--row 7 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Pov Books :</b> {{currentCharacter.povBooks}}</p>
+            </div>
+        </div>
+        <!--row 8 ends-->
+    </div>
+    <!--Container for Character ends-->
+
+    <!--Container for House starts-->
+    <div class="container" *ngIf="currentHouse"
+        style="color:white;word-wrap: break-word; background: linear-gradient(to right, #34e89e, #0f3443);box-shadow: 0px 3px 20px 2px white;">
+        <div class="row">
+            <div class="col-md-12" style="text-align:center;padding-top:2%">
+                <h3>{{currentHouse.name}}</h3>
+            </div>
+        </div>
+        <!--row 1 ends-->
+        <br><br>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="https://riyagarg47.github.io/house.jpg"
+                    style="height:100%;width:80%;border-radius:4px;box-shadow: 0px 3px 20px 2px white">
+            </div>
+            <div class="col-md-4" style="padding-left:3%;">
+                <div style="padding-top:7%;">
+                    <p><b>Region :</b> {{currentHouse.region}}</p>
+                </div>
+                <div>
+                    <p><b>Current Lord :</b> {{currentHouse.currentLord}}</p>
+                </div>
+                <div>
+                    <p><b>Heir :</b> {{currentHouse.heir}}</p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div>
+                    <p><b>Founded :</b> {{currentHouse.founded}}</p>
+                </div>
+                <div>
+                    <p><b>Founder :</b> {{currentHouse.founder}}</p>
+                </div>
+                <div>
+                    <p><b>Died Out :</b> {{currentHouse.diedOut}}</p>
+                </div>
+                <div>
+                    <p><b>Words :</b> {{currentHouse.words}}</p>
+                </div>
+                <div>
+                    <p><b>Over Lord :</b> {{currentHouse.overlord}}</p>
+                </div>
+            </div>
+        </div>
+        <!--row 2 ends-->
+        <br>
+        <hr style="background-color: white">
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Titles :</b> {{currentHouse.titles}}</p>
+            </div>
+        </div>
+        <!--row 3 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Seats :</b> {{currentHouse.seats}}</p>
+            </div>
+        </div>
+        <!--row 4 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Ancestral Weapons :</b> {{currentHouse.ancestralWeapons}}</p>
+            </div>
+        </div>
+        <!--row 5 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Cadet Branches :</b> {{currentHouse.cadetBranches}}</p>
+            </div>
+        </div>
+        <!--row 6 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Sworn Members :</b> {{currentHouse.swornMembers}}</p>
+            </div>
+        </div>
+        <!--row 7 ends-->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <p><b>Coat Of Arms :</b> {{currentHouse.coatOfArms}}</p>
+            </div>
+        </div>
+        <!--row 8 ends-->
+    </div>
+    <!--Container for House ends-->
+
+    <!--footer starts-->
+    <footer class="footer" style="padding-top:5%;">
+        <div class="container text-center">
+            <span class="text-muted">&copy; Copyright 2018. All Rights Reserved.</span>
+        </div>
+    </footer>
+    <!--footer ends-->
+
+</div>
+<!--Main container starts-->

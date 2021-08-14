@@ -1,0 +1,53 @@
+<div class="container-fluid" style=" background: linear-gradient(to right, #000428, #004e92);">
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let item of allItems" class="col-md-4">
+                <!--Book Card starts-->
+
+                <div *ngIf="item.isbn" class="card bookCard">
+                    <div class="card-body">
+                        <h5 class="card-title card-data">{{item.name}}</h5>
+                        <p class="card-text"><b>Published By: </b>{{item.publisher}}</p>
+                        <p class="card-text"><b>Released On: </b>{{item.released | date}}</p>
+                        <a [routerLink]="['/books',item.url.split('books/').pop()]" href="" class="btn btn-danger mybutton" style="margin-left:35%">Know More</a>
+                    </div>
+                </div>
+
+                <!--Book Card ends-->
+                <!--Character Card starts-->
+
+                <div *ngIf="item.gender" class="card characterCard">
+                    <div class="card-body">
+                        <h5 class="card-title card-data">{{item.name}}</h5>
+                        <p class="card-text"><b>Gender: </b>{{item.gender}}</p>
+                        <p class="card-text"><b>Aliases: </b>{{item.aliases}}</p>
+                        <a [routerLink]="['/characters',item.url.split('characters/').pop()]" href=""
+                            class="btn btn-primary" style="margin-left:35%">Know More</a>
+                    </div>
+                </div>
+
+                <!--Character Card ends-->
+                <!--House Card starts-->
+
+                <div *ngIf="item.region" class="card houseCard">
+                    <div class="card-body">
+                        <h5 class="card-title card-data">{{item.name}}</h5>
+                        <p class="card-text"><b>Region: </b>{{item.region}}</p>
+                        <p class="card-text text-truncate"><b>Coat Of Arms: </b>{{item.coatOfArms}}</p>
+                        <a [routerLink]="['/houses',item.url.split('houses/').pop()]" href="" class="btn btn-success"
+                            style="margin-left:35%">Know More</a>
+                    </div>
+                </div>
+
+                <!--House Card ends-->
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!--footer-->
+    <footer class="footer" style="padding-top:5%;">
+        <div class="container text-center">
+            <span class="text-muted">&copy; Copyright 2018. All Rights Reserved.</span>
+        </div>
+    </footer>
+</div>
